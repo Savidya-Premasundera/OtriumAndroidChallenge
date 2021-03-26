@@ -5,6 +5,7 @@ import com.apollographql.apollo.ApolloCall
 import com.apollographql.apollo.ApolloQueryCall
 import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.exception.ApolloException
+import com.otrium.base.R
 
 class BaseRequest {
 
@@ -30,7 +31,7 @@ class BaseRequest {
                 serviceListener?.onServiceStop(isForegroundCall!!)
                 onError(
                     ResultCallBackException(
-                        title = "Error",
+                        title = context?.getString(R.string.user_error_title_tv),
                         errorMessage = e.message
                     )
                 )
@@ -50,8 +51,8 @@ class BaseRequest {
             serviceListener?.onServiceStop(isForegroundCall!!)
             onError(
                 ResultCallBackException(
-                    title = "Error",
-                    errorMessage = "No Internet"
+                    title = context?.getString(R.string.user_error_title_tv),
+                    errorMessage = context?.getString(R.string.user_error_no_internet_tv)
                 )
             )
         }

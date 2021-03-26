@@ -1,8 +1,12 @@
 package com.otrium.base.service
 
+import android.content.Context
 import com.apollographql.apollo.ApolloClient
+import com.apollographql.apollo.cache.http.ApolloHttpCache
+import com.apollographql.apollo.cache.http.DiskLruHttpCacheStore
 import com.otrium.base.BuildConfig
 import okhttp3.OkHttpClient
+import java.io.File
 
 object ApiClient {
 
@@ -11,11 +15,12 @@ object ApiClient {
      *
      * @return Apollo client
      */
-    fun createClient(): ApolloClient {
+    fun createClient(context: Context): ApolloClient {
 
         return ApolloClient.builder()
             .serverUrl(ServiceURL.BASE_URL)
             .okHttpClient(provideHttpClient())
+            .httpCache(ApolloHttpCache(createCacheStore(context)))
             .build()
 
     }
@@ -41,6 +46,19 @@ object ApiClient {
                 it.proceed(builder.build())
             }
             .build()
+
+    }
+
+    /**
+     * Provide cache store
+     *
+     * @param context   Context
+     */
+    private fun createCacheStore(context: Context): DiskLruHttpCacheStore{
+
+        val file = File(context.cacheDir, "apolloCache")
+        val size: Long = 1024 * 1024
+        return DiskLruHttpCacheStore(file, size)
 
     }
 

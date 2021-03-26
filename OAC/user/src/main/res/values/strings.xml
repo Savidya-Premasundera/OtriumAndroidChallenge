@@ -12,6 +12,7 @@
     <string name="user_view_all_btn">View all</string>
 
     <!-- Error Text -->
+    <string name="user_error_title_tv">Error</string>
     <string name="user_error_message_tv">Oops..Something went wrong!</string>
 
     <!-- Dummy Text -->

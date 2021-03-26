@@ -16,7 +16,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "TOKEN", "\"a82f5eefb268c0efaf537714a30a6b3d14b89f1a\""
+        buildConfigField "String", "TOKEN", "\"038cda328b3416cbef5db34c8637050f95949046\""
     }
 
     buildTypes {
@@ -69,6 +69,7 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
     implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
     implementation "com.apollographql.apollo:apollo-runtime:$rootProject.apolloVersion"
+    implementation "com.apollographql.apollo:apollo-http-cache:$rootProject.apolloVersion"
     implementation "de.hdodenhof:circleimageview:$rootProject.circularImgViewVersion"
     implementation "com.squareup.picasso:picasso:$rootProject.picassoVersion"
     implementation "me.zhanghai.android.materialprogressbar:library:$rootProject.progressBarVersion"

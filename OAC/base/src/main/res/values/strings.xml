@@ -1,3 +1,6 @@
 <resources>
-
+    <!-- Error Text -->
+    <string name="user_error_title_tv">Error</string>
+    <string name="user_error_no_internet_tv">No internet connection. Please try again…</string>
+    <string name="user_error_message_tv">Oops..Something went wrong!</string>
 </resources>

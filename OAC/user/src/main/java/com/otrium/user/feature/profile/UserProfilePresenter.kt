@@ -1,6 +1,7 @@
 package com.otrium.user.feature.profile
 
 import android.content.Context
+import com.otrium.base.service.ResultCallBackException
 import com.otrium.user.R
 import com.otrium.user.UserDetailsQuery
 import com.otrium.user.base.BasePresenter
@@ -21,10 +22,11 @@ class UserProfilePresenter<V : UserProfileMvpView> @Inject constructor(
             it.user?.let { user ->
                 getMvpView()?.setUserDetails(userDetails = user)
             }
+        }, onFailException = {
+            getMvpView()?.showMessage(it.errorMessage)
         }, onFail = {
             getMvpView()?.showMessage(context.getString(R.string.user_error_message_tv))
         })
-
     }
 
     /**
@@ -37,16 +39,21 @@ class UserProfilePresenter<V : UserProfileMvpView> @Inject constructor(
     private fun getUserDetails(
         username: String,
         onSuccess: (UserDetailsQuery.Data) -> Unit,
+        onFailException: (ResultCallBackException) -> Unit,
         onFail: () -> Unit
     ) {
 
         getDataManager().getUserProfileDetails(
-            getDataManager().getApiClient().query(UserDetailsQuery(username))
+            getDataManager().getApiClient(context).query(UserDetailsQuery(username))
         )
             .map {
                 onSuccess.invoke(it)
             }.onErrorReturn {
-                onFail.invoke()
+                if (it is ResultCallBackException) {
+                    onFailException.invoke(it)
+                } else {
+                    onFail.invoke()
+                }
             }.subscribe()
 
     }

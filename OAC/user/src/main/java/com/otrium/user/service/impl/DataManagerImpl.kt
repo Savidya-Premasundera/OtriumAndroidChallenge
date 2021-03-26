@@ -12,14 +12,14 @@ import javax.inject.Inject
 
 class DataManagerImpl @Inject
 constructor(
-    private val Context: Context,
+    private val context: Context,
     private val apiClientHelper: ApiClientHelper,
     private val apiHelper: ApiHelper
 ) : DataManager {
 
-    override fun getApiClient(): ApolloClient {
+    override fun getApiClient(context: Context): ApolloClient {
 
-        return apiClientHelper.getApiClient()
+        return apiClientHelper.getApiClient(context)
 
     }
 
