@@ -1,7 +1,7 @@
 package com.otrium.base.service
 
 import com.apollographql.apollo.ApolloClient
-import com.otrium.base.enums.Token
+import com.otrium.base.BuildConfig
 import okhttp3.OkHttpClient
 
 object ApiClient {
@@ -36,7 +36,7 @@ object ApiClient {
                 )
                 builder.addHeader(
                     "authorization",
-                    "Bearer " + Token.AUTH_TOKEN.token
+                    "Bearer " + BuildConfig.TOKEN
                 )
                 it.proceed(builder.build())
             }

@@ -15,6 +15,8 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.otrium.base.dialog.ProgressDialog
 import com.otrium.base.helpers.ProgressDialogHelper
+import com.otrium.base.helpers.ViewTaskHandler
+import com.otrium.base.helpers.runOnUI
 import com.otrium.base.service.BaseRequest
 import com.otrium.base.service.ServiceListener
 import com.otrium.user.di.component.UserComponent
@@ -146,7 +148,9 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment(), MvpView {
 
     override fun showMessage(message: String?) {
 
-        Toast.makeText(this.context, message, Toast.LENGTH_SHORT).show()
+        ViewTaskHandler.runOnUI {
+            Toast.makeText(this.context, message, Toast.LENGTH_SHORT).show()
+        }
 
     }
 
