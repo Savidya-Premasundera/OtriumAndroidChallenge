@@ -1,0 +1,64 @@
+query UserDetails($uname:String!){
+  user(login: $uname) {
+    name
+    login
+    email
+    avatarUrl
+    followers {
+      totalCount
+    }
+    following {
+      totalCount
+    }
+    pinnedItems(first: 3) {
+      nodes {
+        ... on Repository {
+          name
+          description
+          stargazers {
+            totalCount
+          }
+          primaryLanguage {
+            name
+          }
+          owner {
+            login
+            avatarUrl
+          }
+        }
+      }
+    }
+    topRepositories(first: 10, orderBy: {field: CREATED_AT, direction: ASC}) {
+      nodes {
+        name
+        description
+        stargazers {
+          totalCount
+        }
+        primaryLanguage {
+          name
+        }
+        owner {
+          login
+          avatarUrl
+        }
+      }
+    }
+    starredRepositories(orderBy: {field: STARRED_AT, direction: ASC}) {
+      nodes {
+        name
+        description
+        stargazers {
+          totalCount
+        }
+        primaryLanguage {
+          name
+        }
+        owner {
+          login
+          avatarUrl
+        }
+      }
+    }
+  }
+}

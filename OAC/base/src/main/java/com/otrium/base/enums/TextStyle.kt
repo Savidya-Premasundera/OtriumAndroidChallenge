@@ -1,0 +1,8 @@
+package com.otrium.base.enums
+
+enum class TextStyle {
+
+    TITLE01H, TITLE02H, BODY01H, BODY02H, BODY03H, BTN01H,
+    TITLE01W, TITLE02W, BODY01W, BODY02W, BODY03W, BTN01W;
+
+}

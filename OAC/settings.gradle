@@ -1,0 +1,4 @@
+include ':app'
+include ':base'
+include ':user'
+rootProject.name = "Otrium Challenge"

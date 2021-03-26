@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/userContentView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/userStartGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.075" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/userTopGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.025"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userProfileImageImg"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/ic_otrium_logo"
+                    app:civ_border_width="0dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toEndOf="@+id/userStartGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userTopGuideline"
+                    app:layout_constraintWidth_percent="0.25" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/userNameStartGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.35" />
+
+                <com.otrium.base.components.TextViewComponent
+                    android:id="@+id/userNameTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/userUsernameTv"
+                    app:layout_constraintStart_toEndOf="@+id/userNameStartGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userTopGuideline"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:textAlignment="LEFT"
+                    app:textColor="DARK_TV"
+                    app:textStyle="TITLE01W"
+                    app:tv_text="@string/user_error_default_string_tv" />
+
+                <com.otrium.base.components.TextViewComponent
+                    android:id="@+id/userUsernameTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/userProfileImageImg"
+                    app:layout_constraintStart_toEndOf="@+id/userNameStartGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userNameTv"
+                    app:textAlignment="LEFT"
+                    app:textColor="DARK_TV"
+                    app:textStyle="BODY02W"
+                    app:tv_text="@string/user_error_default_string_tv" />
+
+                <com.otrium.base.components.TextViewComponent
+                    android:id="@+id/userEmailTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/userFollowersCountTv"
+                    app:layout_constraintStart_toEndOf="@+id/userStartGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userProfileImageImg"
+                    app:textAlignment="LEFT"
+                    app:textColor="DARK_TV"
+                    app:textStyle="BODY01W"
+                    app:tv_text="@string/user_error_default_string_tv" />
+
+                <com.otrium.base.components.TextViewComponent
+                    android:id="@+id/userFollowersCountTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    app:layout_constraintEnd_toStartOf="@+id/userFollowersTv"
+                    app:layout_constraintStart_toEndOf="@+id/userStartGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userEmailTv"
+                    app:textAlignment="LEFT"
+                    app:textColor="DARK_TV"
+                    app:textStyle="BODY01W"
+                    app:tv_text="@string/user_error_default_number_tv" />
+
+                <com.otrium.base.components.TextViewComponent
+                    android:id="@+id/userFollowersTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/userFollowersCountTv"
+                    app:layout_constraintTop_toBottomOf="@+id/userEmailTv"
+                    app:textAlignment="LEFT"
+                    app:textColor="DARK_TV"
+                    app:textStyle="BODY02W"
+                    app:tv_text="@string/user_profile_follower_tv" />
+
+                <com.otrium.base.components.TextViewComponent
+                    android:id="@+id/userFollowingCountTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.15"
+                    app:layout_constraintStart_toEndOf="@+id/userFollowersTv"
+                    app:layout_constraintTop_toBottomOf="@+id/userEmailTv"
+                    app:textAlignment="LEFT"
+                    app:textColor="DARK_TV"
+                    app:textStyle="BODY01W"
+                    app:tv_text="@string/user_error_default_number_tv" />
+
+                <com.otrium.base.components.TextViewComponent
+                    android:id="@+id/userFollowingTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/userFollowingCountTv"
+                    app:layout_constraintTop_toBottomOf="@+id/userEmailTv"
+                    app:textAlignment="LEFT"
+                    app:textColor="DARK_TV"
+                    app:textStyle="BODY02W"
+                    app:tv_text="@string/user_profile_following_tv" />
+
+                <com.otrium.base.components.TextViewComponent
+                    android:id="@+id/userPinnedListTitleTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:paddingTop="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/userPinnedListRecyclerView"
+                    app:layout_constraintStart_toEndOf="@+id/userStartGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userFollowingTv"
+                    app:textAlignment="LEFT"
+                    app:textColor="DARK_TV"
+                    app:textStyle="TITLE02W"
+                    app:tv_text="@string/user_pinned_list_title_tv" />
+
+                <com.otrium.base.components.ButtonComponent
+                    android:id="@+id/userPinnedListBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:btn_text="@string/user_view_all_btn"
+                    app:buttonScaleSize="REGULAR_BTN"
+                    app:buttonType="TEXT_UNDERLINED"
+                    app:layout_constraintBottom_toBottomOf="@+id/userPinnedListTitleTv"
+                    app:layout_constraintEnd_toStartOf="@+id/userEndGuideline" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/userPinnedListRecyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:paddingBottom="10dp"
+                    app:layout_constraintHeight_percent="0.425"
+                    app:layout_constraintEnd_toEndOf="@+id/userEndGuideline"
+                    app:layout_constraintStart_toEndOf="@+id/userStartGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userPinnedListTitleTv"
+                    app:layout_constraintWidth_percent="0.85" />
+
+                <com.otrium.base.components.TextViewComponent
+                    android:id="@+id/userTopListTitleTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    app:layout_constraintStart_toEndOf="@+id/userStartGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userPinnedListRecyclerView"
+                    app:textAlignment="LEFT"
+                    app:textColor="DARK_TV"
+                    app:textStyle="TITLE02W"
+                    app:tv_maxLines="1"
+                    app:tv_text="@string/user_top_list_title_tv" />
+
+                <com.otrium.base.components.ButtonComponent
+                    android:id="@+id/userTopListBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:btn_text="@string/user_view_all_btn"
+                    app:buttonScaleSize="REGULAR_BTN"
+                    app:buttonType="TEXT_UNDERLINED"
+                    app:layout_constraintBottom_toBottomOf="@+id/userTopListTitleTv"
+                    app:layout_constraintEnd_toStartOf="@+id/userEndGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userPinnedListRecyclerView" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/userTopListRecyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:paddingBottom="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/userStarredListTitleTv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.145"
+                    app:layout_constraintStart_toEndOf="@+id/userStartGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userTopListTitleTv" />
+
+                <com.otrium.base.components.TextViewComponent
+                    android:id="@+id/userStarredListTitleTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toStartOf="@+id/userEndGuideline"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/userStartGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userTopListRecyclerView"
+                    app:textAlignment="LEFT"
+                    app:textColor="DARK_TV"
+                    app:textStyle="TITLE02W"
+                    app:tv_maxLines="1"
+                    app:tv_text="@string/user_starred_list_title_tv" />
+
+                <com.otrium.base.components.ButtonComponent
+                    android:id="@+id/userStarredListBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:btn_text="@string/user_view_all_btn"
+                    app:buttonScaleSize="REGULAR_BTN"
+                    app:buttonType="TEXT_UNDERLINED"
+                    app:layout_constraintBottom_toBottomOf="@+id/userStarredListTitleTv"
+                    app:layout_constraintEnd_toStartOf="@+id/userEndGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userTopListRecyclerView" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/userStarredListRecyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:paddingBottom="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/userBottomGuideline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.145"
+                    app:layout_constraintStart_toEndOf="@+id/userStartGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/userStarredListTitleTv" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/userEndGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.925" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/userBottomGuideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.975"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

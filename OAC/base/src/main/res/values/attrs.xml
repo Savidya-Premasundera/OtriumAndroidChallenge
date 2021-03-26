@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="textStyle" format="enum">
+        <enum name="TITLE01H" value="0" />
+        <enum name="TITLE02H" value="1" />
+        <enum name="BODY01H" value="2" />
+        <enum name="BODY02H" value="3" />
+        <enum name="BODY03H" value="4" />
+        <enum name="BTN01H" value="5" />
+        <enum name="TITLE01W" value="6" />
+        <enum name="TITLE02W" value="7" />
+        <enum name="BODY01W" value="8" />
+        <enum name="BODY02W" value="9" />
+        <enum name="BODY03W" value="10" />
+        <enum name="BTN01W" value="11" />
+    </attr>
+
+    <attr name="textColor" format="enum">
+        <enum name="DARK_TV" value="0" />
+    </attr>
+
+    <attr name="textAlignment" format="enum">
+        <enum name="LEFT" value="0" />
+        <enum name="RIGHT" value="1" />
+        <enum name="CENTER" value="2" />
+    </attr>
+
+    <declare-styleable name="TextViewComponent">
+        <attr name="textStyle" />
+        <attr name="textColor" />
+        <attr name="textAlignment" />
+        <attr name="tv_text" format="string" />
+        <attr name="tv_maxLines" format="integer" />
+        <attr name="tv_letter_space" format="float" />
+    </declare-styleable>
+
+    <attr name="buttonType" format="enum">
+        <enum name="TEXT_THEME" value="0" />
+        <enum name="TEXT_UNDERLINED" value="1" />
+    </attr>
+
+    <attr name="buttonScaleSize" format="enum">
+        <enum name="REGULAR_BTN" value="0" />
+        <enum name="LARGE_BTN" value="1" />
+    </attr>
+
+    <declare-styleable name="ButtonComponent">
+        <attr name="buttonType" />
+        <attr name="buttonScaleSize" />
+        <attr name="btn_text" format="string" />
+        <attr name="is_btn_enabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RepositoryItemContainer">
+        <attr name="repo_icon" format="reference" />
+        <attr name="repo_top_text" format="string" />
+        <attr name="repo_description_01_text" format="string" />
+        <attr name="repo_description_02_text" format="string" />
+        <attr name="repo_star_text" format="string|integer" />
+        <attr name="repo_tag_text" format="string" />
+        <!--Can set separate text styles here-->
+    </declare-styleable>
+
+</resources>

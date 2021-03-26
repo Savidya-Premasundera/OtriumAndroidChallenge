@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/repoWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/repoStartGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.075" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/repoTopGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/repoIconImg"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_otrium_logo"
+                app:civ_border_width="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toEndOf="@+id/repoStartGuideline"
+                app:layout_constraintTop_toBottomOf="@+id/repoTopGuideline"
+                app:layout_constraintWidth_percent="0.15" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/repoTopTextStartGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3" />
+
+            <com.otrium.base.components.TextViewComponent
+                android:id="@+id/repoTopTextTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/repoIconImg"
+                app:layout_constraintStart_toEndOf="@+id/repoTopTextStartGuideline"
+                app:layout_constraintTop_toBottomOf="@+id/repoTopGuideline"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:textAlignment="LEFT"
+                app:textColor="DARK_TV"
+                app:textStyle="BODY02W" />
+
+            <com.otrium.base.components.TextViewComponent
+                android:id="@+id/repoDescription01Tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@+id/repoDescription02Tv"
+                app:layout_constraintEnd_toStartOf="@+id/repoEndGuideline"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/repoStartGuideline"
+                app:layout_constraintTop_toBottomOf="@+id/repoIconImg"
+                app:textAlignment="LEFT"
+                app:textColor="DARK_TV"
+                app:textStyle="BODY01W"
+                app:tv_maxLines="1" />
+
+            <com.otrium.base.components.TextViewComponent
+                android:id="@+id/repoDescription02Tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toStartOf="@+id/repoEndGuideline"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/repoStartGuideline"
+                app:layout_constraintTop_toBottomOf="@+id/repoDescription01Tv"
+                app:textAlignment="LEFT"
+                app:textColor="DARK_TV"
+                app:textStyle="BODY02W"
+                app:tv_maxLines="1" />
+
+            <ImageView
+                android:id="@+id/repoStarImg"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_star"
+                android:paddingEnd="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/repoBottomGuideline"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toEndOf="@+id/repoStartGuideline"
+                app:layout_constraintWidth_percent="0.06"
+                tools:ignore="RtlSymmetry" />
+
+            <com.otrium.base.components.TextViewComponent
+                android:id="@+id/repoStarTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/repoBottomGuideline"
+                app:layout_constraintStart_toEndOf="@+id/repoStarImg"
+                app:layout_constraintTop_toTopOf="@+id/repoStarImg"
+                app:textAlignment="LEFT"
+                app:textColor="DARK_TV"
+                app:textStyle="BODY02W" />
+
+            <ImageView
+                android:id="@+id/repoTagImg"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_tag"
+                android:paddingEnd="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/repoBottomGuideline"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintStart_toEndOf="@+id/repoStarTv"
+                app:layout_constraintWidth_percent="0.05" />
+
+            <com.otrium.base.components.TextViewComponent
+                android:id="@+id/repoTagTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/repoBottomGuideline"
+                app:layout_constraintStart_toEndOf="@+id/repoTagImg"
+                app:layout_constraintTop_toTopOf="@+id/repoTagImg"
+                app:textAlignment="LEFT"
+                app:textColor="DARK_TV"
+                app:textStyle="BODY02W" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/repoEndGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.925" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/repoBottomGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.9"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,23 @@
+<resources>
+    <!-- User Profile -->
+    <string name="user_profile_header_tv">Profile</string>
+    <string name="user_profile_follower_tv">\u0020followers</string>
+    <string name="user_profile_following_tv">\u0020following</string>
+    <string name="user_pinned_list_title_tv">Pinned</string>
+    <string name="user_pinned_list_empty_tv">No pinned repositories found.</string>
+    <string name="user_top_list_title_tv">Top repositories</string>
+    <string name="user_top_list_empty_tv">No top repositories found.</string>
+    <string name="user_starred_list_title_tv">Starred repositories</string>
+    <string name="user_starred_list_empty_tv">No starred repositories found.</string>
+    <string name="user_view_all_btn">View all</string>
+
+    <!-- Error Text -->
+    <string name="user_error_message_tv">Oops..Something went wrong!</string>
+
+    <!-- Dummy Text -->
+    <string name="user_error_default_string_tv">Error</string>
+    <string name="user_error_default_number_tv">0</string>
+    <string name="user_pinned_repo_navigation_tv">Navigating to pinned repositories…</string>
+    <string name="user_top_repo_navigation_tv">Navigating to top repositories…</string>
+    <string name="user_starred_repo_navigation_tv">Navigating to starred repositories…</string>
+</resources>
