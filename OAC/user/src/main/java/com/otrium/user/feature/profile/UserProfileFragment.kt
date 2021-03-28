@@ -101,7 +101,7 @@ class UserProfileFragment : BaseFragment<FragmentUserProfileBinding>(), UserProf
     override fun setUserDetails(userDetails: UserDetailsQuery.User) {
 
         ViewTaskHandler.runOnUI {
-            Picasso.with(context)
+            Picasso.get()
                 .load(userDetails.avatarUrl.toString())
                 .placeholder(R.drawable.ic_otrium_logo)
                 .into(fragmentUserProfileBinding?.userProfileImageImg)

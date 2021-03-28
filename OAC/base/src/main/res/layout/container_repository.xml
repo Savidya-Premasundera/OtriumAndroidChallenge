@@ -96,10 +96,9 @@
                 android:id="@+id/repoStarImg"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_star"
                 android:paddingEnd="5dp"
-                app:layout_constraintBottom_toBottomOf="@+id/repoBottomGuideline"
+                android:src="@drawable/ic_star"
+                app:layout_constraintBottom_toTopOf="@+id/repoBottomGuideline"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toEndOf="@+id/repoStartGuideline"
                 app:layout_constraintWidth_percent="0.06"
@@ -109,34 +108,35 @@
                 android:id="@+id/repoStarTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/repoBottomGuideline"
+                app:layout_constraintBottom_toTopOf="@+id/repoBottomGuideline"
                 app:layout_constraintStart_toEndOf="@+id/repoStarImg"
                 app:layout_constraintTop_toTopOf="@+id/repoStarImg"
                 app:textAlignment="LEFT"
                 app:textColor="DARK_TV"
                 app:textStyle="BODY02W" />
 
-            <ImageView
+            <FrameLayout
                 android:id="@+id/repoTagImg"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_tag"
+                android:background="@drawable/ic_tag_icon"
                 android:paddingEnd="5dp"
-                app:layout_constraintBottom_toBottomOf="@+id/repoBottomGuideline"
+                app:layout_constraintBottom_toTopOf="@+id/repoBottomGuideline"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintHorizontal_bias="0.06"
                 app:layout_constraintStart_toEndOf="@+id/repoStarTv"
-                app:layout_constraintWidth_percent="0.05" />
+                app:layout_constraintTop_toTopOf="@+id/repoStarImg"
+                app:layout_constraintWidth_percent="0.035" />
 
             <com.otrium.base.components.TextViewComponent
                 android:id="@+id/repoTagTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/repoBottomGuideline"
+                android:paddingLeft="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/repoBottomGuideline"
                 app:layout_constraintStart_toEndOf="@+id/repoTagImg"
-                app:layout_constraintTop_toTopOf="@+id/repoTagImg"
+                app:layout_constraintTop_toTopOf="@+id/repoStarImg"
                 app:textAlignment="LEFT"
                 app:textColor="DARK_TV"
                 app:textStyle="BODY02W" />

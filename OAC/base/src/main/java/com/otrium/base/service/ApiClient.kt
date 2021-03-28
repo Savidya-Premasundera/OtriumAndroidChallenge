@@ -2,6 +2,7 @@ package com.otrium.base.service
 
 import android.content.Context
 import com.apollographql.apollo.ApolloClient
+import com.apollographql.apollo.api.cache.http.HttpCachePolicy
 import com.apollographql.apollo.cache.http.ApolloHttpCache
 import com.apollographql.apollo.cache.http.DiskLruHttpCacheStore
 import com.otrium.base.BuildConfig
@@ -19,8 +20,9 @@ object ApiClient {
 
         return ApolloClient.builder()
             .serverUrl(ServiceURL.BASE_URL)
-            .okHttpClient(provideHttpClient())
             .httpCache(ApolloHttpCache(createCacheStore(context)))
+            .defaultHttpCachePolicy(HttpCachePolicy.CACHE_FIRST)
+            .okHttpClient(provideHttpClient())
             .build()
 
     }
@@ -41,7 +43,7 @@ object ApiClient {
                 )
                 builder.addHeader(
                     "authorization",
-                    "Bearer " + BuildConfig.TOKEN
+                    "Bearer " + BuildConfig.TOKEN.replace("@TOKEN@", "")
                 )
                 it.proceed(builder.build())
             }

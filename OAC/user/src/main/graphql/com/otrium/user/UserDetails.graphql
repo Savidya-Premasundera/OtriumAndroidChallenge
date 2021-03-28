@@ -20,6 +20,7 @@ query UserDetails($uname:String!){
           }
           primaryLanguage {
             name
+            color
           }
           owner {
             login
@@ -37,6 +38,7 @@ query UserDetails($uname:String!){
         }
         primaryLanguage {
           name
+          color
         }
         owner {
           login
@@ -53,6 +55,7 @@ query UserDetails($uname:String!){
         }
         primaryLanguage {
           name
+          color
         }
         owner {
           login

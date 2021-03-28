@@ -1,15 +1,19 @@
 package com.otrium.base.containers
 
 import android.content.Context
+import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.BlendModeColorFilterCompat
+import androidx.core.graphics.BlendModeCompat
 import com.otrium.base.R
 import com.otrium.base.databinding.ContainerRepositoryBinding
 import com.squareup.picasso.Picasso
+
 
 class RepositoryItemContainer @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -17,12 +21,10 @@ class RepositoryItemContainer @JvmOverloads constructor(
     context, attrs, defStyleAttr
 ) {
 
-    private lateinit var containerRepositoryBinding: ContainerRepositoryBinding
+    private var containerRepositoryBinding: ContainerRepositoryBinding =
+        ContainerRepositoryBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
-
-        containerRepositoryBinding =
-            ContainerRepositoryBinding.inflate(LayoutInflater.from(context), this, true)
 
         attrs?.let {
 
@@ -73,6 +75,15 @@ class RepositoryItemContainer @JvmOverloads constructor(
                 setTagTextViewText(textViewText)
             }
 
+
+            if (typedArray.hasValue(R.styleable.RepositoryItemContainer_repo_tag_color)) {
+                val tagColor = typedArray.getColor(
+                    R.styleable.RepositoryItemContainer_repo_tag_color
+                    , ContextCompat.getColor(context, R.color.colorBackground)
+                )
+                setTagColor(tagColor)
+            }
+
         }
 
     }
@@ -104,10 +115,12 @@ class RepositoryItemContainer @JvmOverloads constructor(
         )
     ) {
 
-        Picasso.with(context)
-            .load(uri)
-            .placeholder(placeholder)
-            .into(containerRepositoryBinding.repoIconImg)
+        placeholder?.let {
+            Picasso.get()
+                .load(uri)
+                .placeholder(it)
+                .into(containerRepositoryBinding.repoIconImg)
+        }
 
     }
 
@@ -171,8 +184,8 @@ class RepositoryItemContainer @JvmOverloads constructor(
      */
     fun setEmptyStar() {
 
-        containerRepositoryBinding.repoStarImg.visibility= View.GONE
-        containerRepositoryBinding.repoStarImg.visibility= View.GONE
+        containerRepositoryBinding.repoStarImg.visibility = View.GONE
+        containerRepositoryBinding.repoStarImg.visibility = View.GONE
 
     }
 
@@ -181,8 +194,18 @@ class RepositoryItemContainer @JvmOverloads constructor(
      */
     fun setEmptyTag() {
 
-        containerRepositoryBinding.repoTagImg.visibility= View.GONE
-        containerRepositoryBinding.repoTagTv.visibility= View.GONE
+        containerRepositoryBinding.repoTagImg.visibility = View.GONE
+        containerRepositoryBinding.repoTagTv.visibility = View.GONE
+
+    }
+
+    /**
+     * Set empty tag
+     */
+    fun setTagColor(color: Int) {
+
+        containerRepositoryBinding.repoTagImg.background.mutate().colorFilter =
+            BlendModeColorFilterCompat.createBlendModeColorFilterCompat(color, BlendModeCompat.SRC_ATOP)
 
     }
 

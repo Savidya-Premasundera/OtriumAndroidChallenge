@@ -59,6 +59,7 @@
         <attr name="repo_description_02_text" format="string" />
         <attr name="repo_star_text" format="string|integer" />
         <attr name="repo_tag_text" format="string" />
+        <attr name="repo_tag_color" format="reference" />
         <!--Can set separate text styles here-->
     </declare-styleable>
 

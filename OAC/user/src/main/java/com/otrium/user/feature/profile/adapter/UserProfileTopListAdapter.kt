@@ -1,6 +1,7 @@
 package com.otrium.user.feature.profile.adapter
 
 import android.app.Activity
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -99,6 +100,7 @@ class UserProfileTopListAdapter(
             if (topRepo?.primaryLanguage?.name.isNullOrEmpty()) {
                 topListBinding.repoTopItemCont.setEmptyTag()
             } else {
+                topListBinding.repoTopItemCont.setTagColor(Color.parseColor(topRepo?.primaryLanguage?.color))
                 topListBinding.repoTopItemCont.setTagTextViewText(topRepo?.primaryLanguage?.name)
             }
 

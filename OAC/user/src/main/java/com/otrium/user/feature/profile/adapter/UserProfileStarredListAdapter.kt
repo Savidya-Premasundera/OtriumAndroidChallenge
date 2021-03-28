@@ -1,6 +1,7 @@
 package com.otrium.user.feature.profile.adapter
 
 import android.app.Activity
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -99,6 +100,7 @@ class UserProfileStarredListAdapter(
             if (starredRepo?.primaryLanguage?.name.isNullOrEmpty()) {
                 starredListBinding.repoStarredItemCont.setEmptyTag()
             } else {
+                starredListBinding.repoStarredItemCont.setTagColor(Color.parseColor(starredRepo?.primaryLanguage?.color))
                 starredListBinding.repoStarredItemCont.setTagTextViewText(starredRepo?.primaryLanguage?.name)
             }
 

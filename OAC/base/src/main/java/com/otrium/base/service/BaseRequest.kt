@@ -4,6 +4,7 @@ import android.content.Context
 import com.apollographql.apollo.ApolloCall
 import com.apollographql.apollo.ApolloQueryCall
 import com.apollographql.apollo.api.Response
+import com.apollographql.apollo.api.cache.http.HttpCachePolicy
 import com.apollographql.apollo.exception.ApolloException
 import com.otrium.base.R
 

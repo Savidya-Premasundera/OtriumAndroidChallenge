@@ -1,6 +1,7 @@
 package com.otrium.user.feature.profile.adapter
 
 import android.app.Activity
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -99,6 +100,7 @@ class UserProfilePinnedListAdapter(
             if (pinnedRepo?.primaryLanguage?.name.isNullOrEmpty()) {
                 pinnedListBinding.repoPinnedItemCont.setEmptyTag()
             } else {
+                pinnedListBinding.repoPinnedItemCont.setTagColor(Color.parseColor(pinnedRepo?.primaryLanguage?.color))
                 pinnedListBinding.repoPinnedItemCont.setTagTextViewText(pinnedRepo?.primaryLanguage?.name)
             }
         }
